@@ -82,4 +82,12 @@ class LoginRequest extends FormRequest
     {
         return Str::transliterate(Str::lower($this->string('email')).'|'.$this->ip());
     }
+    public function messages()
+    {
+        return [
+            'email.required' => 'E-mail Adresi Gereklidir',
+            'email.email' => 'E-mail Adresinizi Doğru formatta Giriniz',
+            'password.required' => 'Şifre Alanı Girilmelidir',
+        ];
+    }
 }

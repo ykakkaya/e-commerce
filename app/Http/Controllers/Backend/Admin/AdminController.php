@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Backend\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -18,17 +19,37 @@ class AdminController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function profileIndex()
     {
-        //
+        $user=auth()->user();
+        return view('admin.profile.index',compact('user'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function profileUpdate(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+        ],[
+            'name.required' => 'İsim Alanı Gereklidir',
+            'email.required' => 'Email Alanı Gereklidir',
+            'email.email' => 'Email Geçerli Formatta Olmalıdır',
+
+        ]);
+
+        $user = auth()->user();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone ?? '';
+        if($request->password){
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+        return redirect()->route('admin.profile.index')->with('success', 'profile-updated succesfully');
+
     }
 
     /**
