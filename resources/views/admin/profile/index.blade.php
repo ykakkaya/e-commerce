@@ -52,9 +52,9 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-12">
-                                        <label>Şifreniz </label>
-                                        <input type="password" name="password"
-                                            class="form-control"value="{{ $user->password }}">
+                                        <label>Şifreniz (Şifrenizi Değiştirmek İstemiyorsanız Bu Alanı Boş Bırakınız)
+                                        </label>
+                                        <input type="password" name="password" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row">
