@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Backend\Admin\AdminController;
+use App\Http\Controllers\Backend\Vendor\VendorController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,4 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+
+require __DIR__.'/admin.php';
+require __DIR__.'/vendor.php';
 require __DIR__.'/auth.php';
