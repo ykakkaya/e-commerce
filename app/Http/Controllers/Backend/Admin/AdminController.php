@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Backend\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -32,12 +34,12 @@ class AdminController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.Auth::user()->id],
         ],[
             'name.required' => 'İsim Alanı Gereklidir',
             'email.required' => 'Email Alanı Gereklidir',
             'email.email' => 'Email Geçerli Formatta Olmalıdır',
-
+            'email.unique' => 'Bu Email Daha Önce Kullanılmış',
         ]);
 
         $user = auth()->user();
@@ -47,8 +49,17 @@ class AdminController extends Controller
         if($request->password){
             $user->password = Hash::make($request->password);
         }
+        if($request->image){
+            if($user->image){
+                Storage::disk('public')->delete($user->image);
+                
+            }
+            
+            $user->image = $request->image->store('images/users', 'public');
+        }
         $user->save();
-        return redirect()->route('admin.profile.index')->with('success', 'profile-updated succesfully');
+        toastr()->success('Profiliniz Başarıyla Güncellendi!');
+        return redirect()->route('admin.profile.index');
 
     }
 

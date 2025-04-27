@@ -19,7 +19,8 @@
                 <div class="col-12 col-md-12 col-lg-5">
                     <div class="card profile-widget">
                         <div class="profile-widget-header">
-                            <img alt="image" src="{{ asset('backend/assets/img/avatar/avatar-1.png') }}"
+                            <img alt="image"
+                                src="{{ $user->image ? asset('storage/' . $user->image) : asset('backend/assets/img/avatar/avatar-1.png') }}"
                                 class="rounded-circle profile-widget-picture">
                         </div>
                         <div class="profile-widget-description">
@@ -33,7 +34,8 @@
                 </div>
                 <div class="col-12 col-md-12 col-lg-7">
                     <div class="card">
-                        <form method="post" class="needs-validation" action="{{ route('admin.profile.update') }}">
+                        <form method="post" class="needs-validation" action="{{ route('admin.profile.update') }}"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="row">
@@ -73,6 +75,12 @@
                                         <label>Telefon numaranız</label>
                                         <input type="tel" name="phone" class="form-control"
                                             value="{{ $user->phone }}">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-12">
+                                        <label>Profil Resmi</label>
+                                        <input type="file" name="image" class="form-control">
                                     </div>
                                 </div>
                             </div>
