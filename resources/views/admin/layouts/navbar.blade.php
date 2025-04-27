@@ -142,10 +142,9 @@
         </li>
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="{{ asset('backend/assets/img/avatar/avatar-1.png') }}"
-                    class="rounded-circle mr-1">
+                <img alt="image" src="{{ asset('storage/' . auth()->user()->image) }}" class="rounded-circle mr-1">
                 <div class="d-sm-none d-lg-inline-block">@php
-                   echo auth()->user()->name;
+                    echo auth()->user()->name;
                 @endphp</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
