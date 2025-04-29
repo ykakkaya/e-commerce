@@ -52,14 +52,15 @@ class AdminController extends Controller
         if($request->image){
             if($user->image){
                 Storage::disk('public')->delete($user->image);
-                
+
             }
-            
+
             $user->image = $request->image->store('images/users', 'public');
         }
         $user->save();
-        toastr()->success('Profiliniz Başarıyla Güncellendi!');
-        return redirect()->route('admin.profile.index');
+        //toastr()->success('Profiliniz Başarıyla Güncellendi!');
+
+        return redirect()->route('admin.profile.index')->with('info','Profiliniz Başarıyla Güncellendi!');
 
     }
 
