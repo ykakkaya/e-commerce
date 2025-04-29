@@ -13,8 +13,8 @@
                 <div class="wsus__product_item">
                     <span class="wsus__new">New</span>
                     <a class="wsus__pro_link" href="product_details.html">
-                        <img src="images/charger_2.jpg" alt="product" class="img-fluid w-100 img_1" />
-                        <img src="images/charger_1.jpg" alt="product" class="img-fluid w-100 img_2" />
+                        <img src="{{ asset('frontend/images/charger_2.jpg') }}" alt="product" class="img-fluid w-100 img_1" />
+                        <img src="{{ asset('frontend/images/charger_1.jpg') }}" alt="product" class="img-fluid w-100 img_2" />
                     </a>
                     <ul class="wsus__single_pro_icon">
                         <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
@@ -42,8 +42,8 @@
                 <div class="wsus__product_item">
                     <span class="wsus__minus">-20%</span>
                     <a class="wsus__pro_link" href="product_details.html">
-                        <img src="images/headphone_1.jpg" alt="product" class="img-fluid w-100 img_1" />
-                        <img src="images/headphone_2.jpg" alt="product" class="img-fluid w-100 img_2" />
+                        <img src="{{ asset('frontend/images/headphone_1.jpg') }}" alt="product" class="img-fluid w-100 img_1" />
+                        <img src="{{ asset('frontend/images/headphone_2.jpg') }}" alt="product" class="img-fluid w-100 img_2" />
                     </a>
                     <ul class="wsus__single_pro_icon">
                         <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
@@ -70,8 +70,8 @@
             <div class="col-xl-3 col-sm-6 col-lg-4">
                 <div class="wsus__product_item">
                     <a class="wsus__pro_link" href="product_details.html">
-                        <img src="images/tab_1.jpg" alt="product" class="img-fluid w-100 img_1" />
-                        <img src="images/tab_2.jpg" alt="product" class="img-fluid w-100 img_2" />
+                        <img src="{{ asset('frontend/images/tab_1.jpg') }}" alt="product" class="img-fluid w-100 img_1" />
+                        <img src="{{ asset('frontend/images/tab_2.jpg') }}" alt="product" class="img-fluid w-100 img_2" />
                     </a>
                     <ul class="wsus__single_pro_icon">
                         <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
@@ -98,8 +98,8 @@
             <div class="col-xl-3 col-sm-6 col-lg-4">
                 <div class="wsus__product_item ">
                     <a class="wsus__pro_link" href="product_details.html">
-                        <img src="images/mobile_1.jpg" alt="product" class="img-fluid w-100 img_1" />
-                        <img src="images/mobile_2.jpg" alt="product" class="img-fluid w-100 img_2" />
+                        <img src="{{ asset('frontend/images/mobile_1.jpg') }}" alt="product" class="img-fluid w-100 img_1" />
+                        <img src="{{ asset('frontend/images/mobile_2.jpg') }}" alt="product" class="img-fluid w-100 img_2" />
                     </a>
                     <ul class="wsus__single_pro_icon">
                         <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
@@ -128,8 +128,8 @@
                     <span class="wsus__new">New</span>
                     <span class="wsus__minus">-20%</span>
                     <a class="wsus__pro_link" href="product_details.html">
-                        <img src="images/mobile_1.jpg" alt="product" class="img-fluid w-100 img_1" />
-                        <img src="images/mobile_2.jpg" alt="product" class="img-fluid w-100 img_2" />
+                        <img src="{{ asset('frontend/images/mobile_1.jpg') }}" alt="product" class="img-fluid w-100 img_1" />
+                        <img src="{{ asset('frontend/images/mobile_2.jpg') }}" alt="product" class="img-fluid w-100 img_2" />
                     </a>
                     <ul class="wsus__single_pro_icon">
                         <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
