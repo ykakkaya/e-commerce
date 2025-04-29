@@ -320,8 +320,9 @@
                                             Yap</a>
                                 </li>
                             @endauth
-
-                            <li><a href="{{ route('login') }}">Giriş Yap</a></li>
+                            @guest
+                                <li><a href="{{ route('login') }}">Giriş Yap</a></li>
+                            @endguest
                         </ul>
                     </div>
                 </div>

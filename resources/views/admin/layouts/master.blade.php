@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    @yield('headUp')
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>General Dashboard &mdash; Stisla</title>
@@ -32,9 +33,11 @@
         gtag('config', 'UA-94034622-3');
     </script>
     <!-- /END GA -->
+    @yield('headDown')
 </head>
 
 <body>
+    @yield('bodyUp')
     <div id="app">
         <div class="main-wrapper main-wrapper-1">
             <div class="navbar-bg"></div>
@@ -72,6 +75,7 @@
     <!-- Template JS File -->
     <script src="{{ asset('backend/assets/js/scripts.js') }}"></script>
     <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
+    @yield('bodyDown')
 </body>
 
 </html>

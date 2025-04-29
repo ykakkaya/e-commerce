@@ -19,7 +19,7 @@
                 <div class="col-12 col-md-12 col-lg-5">
                     <div class="card profile-widget">
                         <div class="profile-widget-header">
-                            <img alt="image"
+                            <img alt="image" id='showImage'
                                 src="{{ $user->image ? asset('storage/' . $user->image) : asset('backend/assets/img/avatar/avatar-1.png') }}"
                                 class="rounded-circle profile-widget-picture">
                         </div>
@@ -80,7 +80,7 @@
                                 <div class="row">
                                     <div class="form-group col-12">
                                         <label>Profil Resmi</label>
-                                        <input type="file" name="image" class="form-control">
+                                        <input type="file" name="image" id="image" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -93,4 +93,17 @@
             </div>
         </div>
     </section>
+@endsection
+@section('bodyDown')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#image').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+        });
+    </script>
 @endsection
