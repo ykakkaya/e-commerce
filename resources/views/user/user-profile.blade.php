@@ -73,7 +73,7 @@
                             </div>
                             <div class="col-xl-3 col-sm-6 col-md-6">
                                 <div class="wsus__dash_pro_img">
-                                    <img src="{{ $user->image ? asset('storage/' . $user->image) : asset('backend/assets/img/avatar/avatar-1.png') }}"
+                                    <img src="{{ $user->image ? asset('storage/' . $user->image) : asset('nophoto.png') }}"
                                         alt="img" class="img-fluid w-100" id="showImage">
                                     <input type="file" name="image" id="image" />
                                 </div>

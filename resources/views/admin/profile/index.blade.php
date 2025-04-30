@@ -20,7 +20,7 @@
                     <div class="card profile-widget">
                         <div class="profile-widget-header">
                             <img alt="image" id='showImage'
-                                src="{{ $user->image ? asset('storage/' . $user->image) : asset('backend/assets/img/avatar/avatar-1.png') }}"
+                                src="{{ $user->image ? asset('storage/' . $user->image) : asset('nophoto.png') }}"
                                 class="rounded-circle profile-widget-picture">
                         </div>
                         <div class="profile-widget-description">
