@@ -17,7 +17,7 @@ Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::post('slider/store',[SliderController::class,'store'])->name('admin.slider.store');
     Route::get('slider/edit/{id}',[SliderController::class,'edit'])->name('admin.slider.edit');
     Route::post('slider/update/{id}',[SliderController::class,'update'])->name('admin.slider.update');
-    Route::get('slider/delete/{id}',[SliderController::class,'delete'])->name('admin.slider.delete');
+    Route::get('slider/destroy/{id}',[SliderController::class,'destroy'])->name('admin.slider.destroy');
 
 
 });

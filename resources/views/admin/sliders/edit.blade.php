@@ -1,9 +1,6 @@
 @extends('admin.layouts.master')
 
 @section('admin_content')
-    @extends('admin.layouts.master')
-
-@section('admin_content')
     <section class="section">
         <div class="section-header">
             <h1>Slider Ekleme</h1>
@@ -67,46 +64,47 @@
                                     <div class="form-group col-md-6">
                                         <label>Slider Resmi</label>
                                         <input type="file" class="form-control" id="image" name="image" ">
-                                        @error('image')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <image
-                                            src="{{ $slider->image ? asset('storage/' . $slider->image) : asset('nophoto.png') }}"
-                                            class="img-thumbnail" id="showImage" height="50px" width="150px">
+                                                @error('image')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <image
+                                                    src="{{ $slider->image ? asset('storage/' . $slider->image) : asset('nophoto.png') }}"
+                                                    class="img-thumbnail" id="showImage" height="50px" width="150px">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label>Slider Sıralama</label>
+                                                <input type="text" class="form-control" name="serial"
+                                                    value="{{ $slider->serial }}">
+                                                @error('serial')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label>Slider Durumu</label>
+                                                <select class="form-control" name="status">
+                                                    <option value="1" {{ $slider->status == 1 ? 'selected' : '' }}>Aktif
+                                                    </option>
+                                                    <option value="0" {{ $slider->status == 0 ? 'selected' : '' }}>Pasif
+                                                    </option>
+                                                </select>
+                                                @error('status')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Güncelle</button>
+                                        <a href="{{ route('admin.slider.index') }}" class="btn btn-warning">İptal</a>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label>Slider Sıralama</label>
-                                        <input type="text" class="form-control" name="serial"
-                                            value="{{ $slider->serial }}">
-                                        @error('serial')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Slider Durumu</label>
-                                        <select class="form-control" name="status">
-                                            <option value="1" {{ $slider->status == 1 ? 'selected' : '' }}>Aktif
-                                            </option>
-                                            <option value="0" {{ $slider->status == 0 ? 'selected' : '' }}>Pasif
-                                            </option>
-                                        </select>
-                                        @error('status')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Güncelle</button>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
-            </form>
-        </div>
-    </section>
+            </section>
 @endsection
 @section('bodyDown')
     <script type="text/javascript">
@@ -120,6 +118,4 @@
             });
         });
     </script>
-@endsection
-
 @endsection

@@ -20,7 +20,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Slider Başlığı</label>
-                                    <input type="text" class="form-control" name="title">
+                                    <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                                     @error('title')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -28,14 +28,14 @@
 
                                 <div class="form-group">
                                     <label>Açıklama</label>
-                                    <input type="text" class="form-control" name="sub_title">
+                                    <input type="text" class="form-control" name="sub_title" value="{{ old('sub_title') }}">
                                     @error('sub_title')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Alt Başlığı</label>
-                                    <input type="text" class="form-control" name="description">
+                                    <input type="text" class="form-control" name="description" value="{{ old('description') }}">
                                     @error('description')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -43,7 +43,7 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label>Button Text</label>
-                                        <input type="text" class="form-control" name="button_text">
+                                        <input type="text" class="form-control" name="button_text" value="{{ old('button_text') }}">
                                         @error('button_text')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -51,7 +51,7 @@
                                     <div class="form-group col-md-6">
                                         <label>Button Url</label>
                                         <input type="text" class="form-control" name="button_url"
-                                            placeholder="https://example.com formatında olmalıdır.">
+                                            placeholder="https://example.com formatında olmalıdır." value="{{ old('button_url') }}">
                                         @error('button_url')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror

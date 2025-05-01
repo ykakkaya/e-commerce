@@ -14,7 +14,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::get();
+        $sliders = Slider::orderBy('serial')->get();
         return view('admin.sliders.index', compact('sliders'));
     }
 
@@ -32,26 +32,25 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:200',
-            'sub_title' => 'required|max:200',
-            'description' => 'required|max:200',
+            'title' => 'nullable|max:200',
+            'sub_title' => 'nullable|max:200',
+            'description' => 'nullable|max:200',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'button_text' => 'required',
-            'button_url' => 'url',
+            'button_text' => 'nullable',
+            'button_url' => 'nullable|url',
             'status' => 'required',
             'serial' => 'required|integer',
         ],[
-            'title.required' => 'Başlık Alanı Zorunludur',
+           
             'title.max' => 'Başlık Alanı En Fazla 200 Karakter Olmalıdır',
-            'sub_title.required' => 'Alt Başlık Alanı Zorunludur',
+            
             'sub_title.max' => 'Alt Başlık Alanı En Fazla 200 Karakter Olmalıdır',
-            'description.required' => 'Açıklama Alanı Zorunludur',
+           
             'description.max' => 'Açıklama Alanı En Fazla 200 Karakter Olmalıdır',
             'image.required' => 'Resim Alanı Zorunludur',
             'image.image' => 'Resim Alanı Resim Olmalıdır',
             'image.mimes' => 'Resim Alanı jpeg,png,jpg,gif olabilir',
-            'button_text.required' => 'Button Text alanıı Zorunludur',
-            'button_url.required' => 'Button URLalanı Zorunludur',
+           
             'status.required' => 'Durum Alanı Zorunludur',
             'serial.required' => 'Sıralama Alanı Zorunludur',
         ]);
@@ -93,25 +92,20 @@ class SliderController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'title' => 'required|max:200',
-            'sub_title' => 'required|max:200',
-            'description' => 'required|max:200',
+            'title' => 'nullable|max:200',
+            'sub_title' => 'nullable|max:200',
+            'description' => 'nullable|max:200',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'button_text' => 'required',
-            'button_url' => 'url',
+            'button_text' => 'nullable',
+            'button_url' => 'nullable|url',
             'status' => 'required',
             'serial' => 'required|integer',
         ],[
-            'title.required' => 'Başlık Alanı Zorunludur',
             'title.max' => 'Başlık Alanı En Fazla 200 Karakter Olmalıdır',
-            'sub_title.required' => 'Alt Başlık Alanı Zorunludur',
             'sub_title.max' => 'Alt Başlık Alanı En Fazla 200 Karakter Olmalıdır',
-            'description.required' => 'Açıklama Alanı Zorunludur',
             'description.max' => 'Açıklama Alanı En Fazla 200 Karakter Olmalıdır',
             'image.image' => 'Resim Alanı Resim Olmalıdır',
             'image.mimes' => 'Resim Alanı jpeg,png,jpg,gif olabilir',
-            'button_text.required' => 'Button Text alanıı Zorunludur',
-            'button_url.required' => 'Button URLalanı Zorunludur',
             'status.required' => 'Durum Alanı Zorunludur',
             'serial.required' => 'Sıralama Alanı Zorunludur',
             ]);
