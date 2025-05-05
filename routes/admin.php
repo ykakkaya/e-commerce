@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Admin\AdminController;
 use App\Http\Controllers\Backend\Admin\SliderController;
+use App\Http\Controllers\Backend\Admin\CategoryController;
 
 
 
@@ -18,6 +19,13 @@ Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::get('slider/edit/{id}',[SliderController::class,'edit'])->name('admin.slider.edit');
     Route::post('slider/update/{id}',[SliderController::class,'update'])->name('admin.slider.update');
     Route::get('slider/destroy/{id}',[SliderController::class,'destroy'])->name('admin.slider.destroy');
+    //Category Routes
+    Route::get('category/index',[CategoryController::class,'index'])->name('admin.category.index');
+    Route::get('category/create',[CategoryController::class,'create'])->name('admin.category.create');
+    Route::post('category/store',[CategoryController::class,'store'])->name('admin.category.store');
+    Route::get('category/edit/{id}',[CategoryController::class,'edit'])->name('admin.category.edit');
+    Route::post('category/update/{id}',[CategoryController::class,'update'])->name('admin.category.update');
+    Route::get('category/destroy/{id}',[CategoryController::class,'destroy'])->name('admin.category.destroy');
 
 
 });

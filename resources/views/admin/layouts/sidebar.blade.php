@@ -7,14 +7,21 @@
             <a href="index.html">YK</a>
         </div>
         <ul class="sidebar-menu">
-            {{-- <li class="menu-header">Dashboard</li>
-            <li class="dropdown active">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            {{-- <li class="menu-header">Ürün Yönetimi</li> --}}
+            <li class="dropdown">
+                <a href="#" class="nav-link has-dropdown"><svg class="w-6 h-6 text-gray-800 dark:text-white"
+                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                        fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5v14m8-7h-2m0 0h-2m2 0v2m0-2v-2M3 11h6m-6 4h6m11 4H4c-.55228 0-1-.4477-1-1V6c0-.55228.44772-1 1-1h16c.5523 0 1 .44772 1 1v12c0 .5523-.4477 1-1 1Z" />
+                    </svg>
+                    <span>Ürün Yönetimi</span></a>
                 <ul class="dropdown-menu">
-                    <li class=active><a class="nav-link" href="index-0.html">General Dashboard</a></li>
-                    <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
+                    <li class=active><a class="nav-link" href="{{ route('admin.category.index') }}">Kategori
+                            Yönetimi</a></li>
+                    {{-- <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li> --}}
                 </ul>
-            </li> --}}
+            </li>
             {{-- <li class="menu-header">Starter</li> --}}
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><svg
@@ -32,7 +39,7 @@
                     <span>Genel Özellikler</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.slider.index') }}">Slider</a></li>
-                    
+
                 </ul>
             </li>
             <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank

@@ -13,6 +13,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('backend/assets/modules/fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" />
+    <!-- icon_picker bootstrap -->
+    <link rel="stylesheet" href="{{ asset('backend/assets/iconpicker/bootstrap-iconpicker.min.css') }}" />
 
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('backend/assets/modules/jqvmap/dist/jqvmap.min.css') }}">
@@ -91,6 +94,9 @@
     <!--Delete SweetAlert-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="{{ asset('backend/assets/js/deleteCode.js') }}"></script>
+    <!--icon picker-->
+    <script type="text/javascript" src="{{ asset('backend/assets/iconpicker/bootstrap-iconpicker.bundle.min.js') }}">
+    </script>
 
     <!-- Template JS File -->
     <script src="{{ asset('backend/assets/js/scripts.js') }}"></script>

@@ -4,35 +4,37 @@
             <div class="col-xl-12">
                 <div class="wsus__banner_content">
                     <div class="row banner_slider">
-                        @foreach ($sliders as $slider)
-                            <div class="col-xl-12">
-                                <div class="wsus__single_slider"
-                                    style="min-height: 400px; background: url({{ $slider->image ? asset('storage/' . $slider->image) : asset('nophoto.png') }})">
-                                    <div class="wsus__single_slider_text">
-                                        <h3>{{ $slider->title }}</h3>
-                                        <h1>{{ $slider->sub_title }}</h1>
-                                        <h6>{{ $slider->description }}</h6>
-                                        @if ($slider->button_text)
-                                            <a class="common_btn" href="{{ $slider->button->url }}">{{ $slider->button_text }}</a>
-                                        @endif
+                        @if ($sliders->count() > 0)
+                            @foreach ($sliders as $slider)
+                                <div class="col-xl-12">
+                                    <div class="wsus__single_slider"
+                                        style="min-height: 400px; background: url({{ $slider->image ? asset('storage/' . $slider->image) : asset('nophoto.png') }})">
+                                        <div class="wsus__single_slider_text">
+                                            <h3>{{ $slider->title }}</h3>
+                                            <h1>{{ $slider->sub_title }}</h1>
+                                            <h6>{{ $slider->description }}</h6>
+                                            @if ($slider->button_text != null && $slider->button_url != null)
+                                                <a class="common_btn"
+                                                    href="{{ $slider->button->url ?? '#' }}">{{ $slider->button_text }}</a>
+                                            @endif
 
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="col-xl-12">
+                                <div class="wsus__single_slider" style="background: url({{ asset('nophoto.png') }});">
+                                    <div class="wsus__single_slider_text">
+                                        <h3>Yeni Ürün </h3>
+                                        <h1>Alt başlık</h1>
+                                        <h6>Yeni Ürün Açıklama</h6>
+                                        <a class="common_btn" href="#">shop now</a>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
-                    @if($sliders->count() == 0)
-                         <div class="col-xl-12">
-                            <div class="wsus__single_slider" style="background: url({{  asset('nophoto.png') }});">
-                                <div class="wsus__single_slider_text">
-                                    <h3>Yeni Ürün </h3>
-                                    <h1>Alt başlık</h1>
-                                    <h6>Yeni Ürün Açıklama</h6>
-                                    <a class="common_btn" href="#">shop now</a>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                        {{--<div class="col-xl-12">
+                        @endif
+                        {{-- <div class="col-xl-12">
                             <div class="wsus__single_slider" style="background: url({{ asset('frontend/images/slider_3.jpg') }});">
                                 <div class="wsus__single_slider_text">
                                     <h3>new arrivals</h3>
