@@ -26,6 +26,13 @@ Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::get('category/edit/{id}',[CategoryController::class,'edit'])->name('admin.category.edit');
     Route::post('category/update/{id}',[CategoryController::class,'update'])->name('admin.category.update');
     Route::get('category/destroy/{id}',[CategoryController::class,'destroy'])->name('admin.category.destroy');
+    //SubCategory Routes
+    Route::get('sub-category/index',[SubCategoryController::class,'index'])->name('admin.sub-category.index');
+    Route::get('sub-category/create',[SubCategoryController::class,'create'])->name('admin.sub-category.create');
+    Route::post('sub-category/store',[SubCategoryController::class,'store'])->name('admin.sub-category.store');
+    Route::get('sub-category/edit/{id}',[SubCategoryController::class,'edit'])->name('admin.sub-category.edit');
+    Route::post('sub-category/update/{id}',[SubCategoryController::class,'update'])->name('admin.sub-category.update');
+    Route::get('sub-category/destroy/{id}',[SubCategoryController::class,'destroy'])->name('admin.sub-category.destroy');
 
 
 });

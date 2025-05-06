@@ -12,7 +12,7 @@
         </div>
 
         <div class="section-body">
-            <form action="{{ route('admin.category.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.sub-category.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-12 col-md-12">
@@ -27,14 +27,6 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label>Kategori Icon</label>
-                                        <div data-rows="3" data-cols="8" data-unselected-class="btn-success"
-                                            data-selected-class="btn-danger" name='icon' role="iconpicker"></div>
-                                        @error('icon')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
                                     <div class="row">
                                         <div class="form-select col-md-6">
                                             <label>Kategori Durumu</label>

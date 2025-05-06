@@ -12,7 +12,7 @@
         </div>
 
         <div class="section-body">
-            <form action="{{ route('admin.category.update', $category->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.sub-category.update', $category->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-12 col-md-12">
@@ -24,20 +24,6 @@
                                     @error('name')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label>Kategori Icon</label>
-                                        <div id="iconpicker" role="iconpicker" data-icon="{{ $category->icon }}"
-                                            data-rows="3" data-cols="10" data-selected-class="btn-danger"
-                                            data-unselected-class=" btn-success">
-                                        </div>
-                                        <input type="hidden" name="icon" id="iconInput" value="{{ $category->icon }}">
-                                        @error('icon')
-                                        <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
@@ -54,7 +40,7 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Güncelle</button>
-                                <a href="{{ route('admin.category.index') }}" class="btn btn-warning">İptal</a>
+                                <a href="{{ route('admin.sub-category.index') }}" class="btn btn-warning">İptal</a>
                             </div>
                         </div>
                     </div>

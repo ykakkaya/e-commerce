@@ -32,13 +32,14 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'icon'=>'required|not_in:empty',
-            'name'=>'required',
+            'icon'=>'required|not_in:empty,',
+            'name'=>'required|unique:categories,name',
             'status'=>'required',
         ],[
             'icon.required'=>'Kategori İkonu Boş Bırakılamaz',
             'icon.not_in'=>'Kategori İkonu Boş Bırakılamaz',
             'name.required'=>'Kategori Adı Boş Bırakılamaz',
+            'name.unique'=>'Kategori Adı Daha Önce Eklenmiş',
             'status.required'=>'Kategori Durumu Boş Bırakılamaz',
         ]);
         Category::create([
@@ -74,16 +75,17 @@ class CategoryController extends Controller
     {
         $request->validate([
             'icon'=>'required|not_in:empty',
-            'name'=>'required',
+            'name' => 'required|unique:categories,name,' . $id,
             'status'=>'required',
 
         ],[
             'icon.required'=>'Kategori İkonu Boş Bırakılamaz',
             'icon.not_in'=>'Kategori İkonu Boş Bırakılamaz',
             'name.required'=>'Kategori Adı Boş Bırakılamaz',
+            'name.unique'=>'Kategori Adı Daha Önce Eklenmiş',
             'status.required'=>'Kategori Durumu Boş Bırakılamaz',
         ]);
-   
+
         $category=Category::findOrFail($id);
         $category->update([
             'icon'=>$request->icon,
