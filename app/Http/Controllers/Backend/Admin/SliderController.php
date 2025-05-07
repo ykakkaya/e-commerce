@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend\Admin;
 
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
@@ -41,20 +43,23 @@ class SliderController extends Controller
             'status' => 'required',
             'serial' => 'required|integer',
         ],[
-           
+
             'title.max' => 'Başlık Alanı En Fazla 200 Karakter Olmalıdır',
-            
+
             'sub_title.max' => 'Alt Başlık Alanı En Fazla 200 Karakter Olmalıdır',
-           
+
             'description.max' => 'Açıklama Alanı En Fazla 200 Karakter Olmalıdır',
             'image.required' => 'Resim Alanı Zorunludur',
             'image.image' => 'Resim Alanı Resim Olmalıdır',
             'image.mimes' => 'Resim Alanı jpeg,png,jpg,gif olabilir',
-           
+
             'status.required' => 'Durum Alanı Zorunludur',
             'serial.required' => 'Sıralama Alanı Zorunludur',
         ]);
-        $imagePath = $request->file('image')->store('images/sliders', 'public');
+
+        if ($request->hasFile('image')) {
+            $imagePath = resizeImageHelper($request->file('image'), 'sliders', 1300, 500);
+        }
         $slider=Slider::create([
             'title' => $request->title,
             'sub_title' => $request->sub_title,
@@ -116,7 +121,7 @@ class SliderController extends Controller
                 if($slider->image){
                     Storage::disk('public')->delete($slider->image);
                 }
-                $imagePath = $request->file('image')->store('images/sliders', 'public');
+                $imagePath = resizeImageHelper($request->file('image'), 'sliders', 1300, 500);
             }
             $slider->update([
                 'title' => $request->title,

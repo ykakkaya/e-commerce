@@ -36,11 +36,12 @@ class UserController extends Controller
         $user->email=$request->email;
         $user->phone=$request->phone;
         if($request->hasFile('image')){
+
             if($user->image != null){
                 Storage::disk('public')->delete($user->image);
             }
-
-            $user->image = $request->file('image')->store('images/users', 'public');
+             $imagePath =resizeImageHelper($request->file('image'), 'users', 350, 350);
+                $user->image = $imagePath;
         }
         if($request->password){
             $user->password=Hash::make($request->password);

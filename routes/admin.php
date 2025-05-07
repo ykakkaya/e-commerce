@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Admin\AdminController;
+use App\Http\Controllers\Backend\Admin\BrandController;
 use App\Http\Controllers\Backend\Admin\SliderController;
 use App\Http\Controllers\Backend\Admin\CategoryController;
+use App\Http\Controllers\Backend\Admin\SubCategoryController;
+use App\Http\Controllers\Backend\Admin\ChildCategoryController;
 
 
 
@@ -27,12 +30,26 @@ Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::post('category/update/{id}',[CategoryController::class,'update'])->name('admin.category.update');
     Route::get('category/destroy/{id}',[CategoryController::class,'destroy'])->name('admin.category.destroy');
     //SubCategory Routes
-    Route::get('sub-category/index',[SubCategoryController::class,'index'])->name('admin.sub-category.index');
-    Route::get('sub-category/create',[SubCategoryController::class,'create'])->name('admin.sub-category.create');
-    Route::post('sub-category/store',[SubCategoryController::class,'store'])->name('admin.sub-category.store');
-    Route::get('sub-category/edit/{id}',[SubCategoryController::class,'edit'])->name('admin.sub-category.edit');
-    Route::post('sub-category/update/{id}',[SubCategoryController::class,'update'])->name('admin.sub-category.update');
-    Route::get('sub-category/destroy/{id}',[SubCategoryController::class,'destroy'])->name('admin.sub-category.destroy');
+    Route::get('sub_category/index',[SubCategoryController::class,'index'])->name('admin.sub_category.index');
+    Route::get('sub_category/create',[SubCategoryController::class,'create'])->name('admin.sub_category.create');
+    Route::post('sub_category/store',[SubCategoryController::class,'store'])->name('admin.sub_category.store');
+    Route::get('sub_category/edit/{id}',[SubCategoryController::class,'edit'])->name('admin.sub_category.edit');
+    Route::post('sub_category/update/{id}',[SubCategoryController::class,'update'])->name('admin.sub_category.update');
+    Route::get('sub_category/destroy/{id}',[SubCategoryController::class,'destroy'])->name('admin.sub_category.destroy');
+    //ChildCategory Routes
+    Route::get('child_category/index',[ChildCategoryController::class,'index'])->name('admin.child_category.index');
+    Route::get('child_category/create',[ChildCategoryController::class,'create'])->name('admin.child_category.create');
+    Route::post('child_category/store',[ChildCategoryController::class,'store'])->name('admin.child_category.store');
+    Route::get('child_category/edit/{id}',[ChildCategoryController::class,'edit'])->name('admin.child_category.edit');
+    Route::post('child_category/update/{id}',[ChildCategoryController::class,'update'])->name('admin.child_category.update');
+    Route::get('child_category/destroy/{id}',[ChildCategoryController::class,'destroy'])->name('admin.child_category.destroy');
+    //Brands Routes
+    Route::get('brands/index',[BrandController::class,'index'])->name('admin.brands.index');
+    Route::get('brands/create',[BrandController::class,'create'])->name('admin.brands.create');
+    Route::post('brands/store',[BrandController::class,'store'])->name('admin.brands.store');
+    Route::get('brands/edit/{id}',[BrandController::class,'edit'])->name('admin.brands.edit');
+    Route::post('brands/update/{id}',[BrandController::class,'update'])->name('admin.brands.update');
+    Route::get('brands/destroy/{id}',[BrandController::class,'destroy'])->name('admin.brands.destroy');
 
 
 });

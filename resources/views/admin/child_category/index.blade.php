@@ -5,7 +5,7 @@
         <div class="section-header d-flex justify-content-between align-items-center mb-4">
             <h1 class="mb-0">Alt Kategoriler</h1>
             <a href="{{ route('admin.sub_category.create') }}" class="btn btn-primary">
-                + Yeni Alt Kategori Ekle
+                + Child Kategori Ekle
             </a>
         </div>
         <div class="section-body">
@@ -33,7 +33,7 @@
                                         </span>
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.sub_category.edit', $item->id) }}"><svg
+                                        <a href="{{ route('admin.child_category.edit', $item->id) }}"><svg
                                                 class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                 fill="currentColor" viewBox="0 0 24 24">
@@ -45,7 +45,7 @@
                                                     clip-rule="evenodd" />
                                             </svg>
                                         </a>
-                                        <a href="{{ route('admin.sub_category.destroy', $item->id) }}" id='delete'><svg
+                                        <a href="{{ route('admin.child_category.destroy', $item->id) }}" id='delete'><svg
                                                 class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                 fill="red" viewBox="0 0 24 24">

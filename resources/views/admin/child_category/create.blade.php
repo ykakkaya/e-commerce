@@ -3,16 +3,16 @@
 @section('admin_content')
     <section class="section">
         <div class="section-header">
-            <h1>Alt Kategori Ekleme</h1>
+            <h1>Child Kategori Ekleme</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Forms</a></div>
-                <div class="breadcrumb-item">Alt Kategori Ekleme</div>
+                <div class="breadcrumb-item">Child Kategori Ekleme</div>
             </div>
         </div>
 
         <div class="section-body">
-            <form action="{{ route('admin.sub_category.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.child_category.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="col-12 col-md-12">

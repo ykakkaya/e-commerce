@@ -3,9 +3,9 @@
 @section('admin_content')
     <section class="section">
         <div class="section-header d-flex justify-content-between align-items-center mb-4">
-            <h1 class="mb-0">Alt Kategoriler</h1>
-            <a href="{{ route('admin.sub_category.create') }}" class="btn btn-primary">
-                + Yeni Alt Kategori Ekle
+            <h1 class="mb-0">Kategoriler</h1>
+            <a href="{{ route('admin.category.create') }}" class="btn btn-primary">
+                + Yeni Kategori Ekle
             </a>
         </div>
         <div class="section-body">
@@ -15,8 +15,8 @@
                         <thead>
                             <tr>
                                 <th>SıraNo</th>
-                                <th>Alt Kategori Adı</th>
-                                <th>Bağlı Kategori Adı</th>
+                                <th>Icon</th>
+                                <th>Kategori Adı</th>
                                 <th>Durum</th>
                                 <th>İşlemler</th>
                             </tr>
@@ -25,15 +25,17 @@
                             @foreach ($items as $key => $item)
                                 <tr>
                                     <td style="width: 5px;">{{ $key + 1 }}</td>
+
+                                    <td><i class="{{ $item->icon }}"style="font-size: 24px;" ></i></td>
+
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->category->name }}</td>
                                     <td>
                                         <span class="badge {{ $item->status ? 'bg-info' : 'bg-secondary' }}">
                                             {{ $item->status ? 'Aktif' : 'Pasif' }}
                                         </span>
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.sub_category.edit', $item->id) }}"><svg
+                                        <a href="{{ route('admin.category.edit', $item->id) }}"><svg
                                                 class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                 fill="currentColor" viewBox="0 0 24 24">
@@ -45,7 +47,7 @@
                                                     clip-rule="evenodd" />
                                             </svg>
                                         </a>
-                                        <a href="{{ route('admin.sub_category.destroy', $item->id) }}" id='delete'><svg
+                                        <a href="{{ route('admin.category.destroy', $item->id) }}" id='delete'><svg
                                                 class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                 fill="red" viewBox="0 0 24 24">
