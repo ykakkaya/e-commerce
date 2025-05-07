@@ -3,9 +3,9 @@
 @section('admin_content')
     <section class="section">
         <div class="section-header d-flex justify-content-between align-items-center mb-4">
-            <h1 class="mb-0">Kategoriler</h1>
-            <a href="{{ route('admin.category.create') }}" class="btn btn-primary">
-                + Yeni Kategori Ekle
+            <h1 class="mb-0">Markalar</h1>
+            <a href="{{ route('admin.brands.create') }}" class="btn btn-primary">
+                + Yeni Marka Ekle
             </a>
         </div>
         <div class="section-body">
@@ -15,8 +15,9 @@
                         <thead>
                             <tr>
                                 <th>SıraNo</th>
-                                <th>Icon</th>
-                                <th>Kategori Adı</th>
+                                <th>Marka Resmi</th>
+                                <th>Marka Adı</th>
+                                <th>Öne Çıkan</th>
                                 <th>Durum</th>
                                 <th>İşlemler</th>
                             </tr>
@@ -26,16 +27,24 @@
                                 <tr>
                                     <td style="width: 5px;">{{ $key + 1 }}</td>
 
-                                    <td><i class="{{ $item->icon }}"style="font-size: 24px;" ></i></td>
+                                    <td>
+                                        <img src="{{ $item->image ? asset('storage/' . $item->image) : asset('nophoto.png') }}"
+                                            alt="Marka Resmi" style="width: 150px; height: 75px;">
+                                    </td>
 
                                     <td>{{ $item->name }}</td>
+                                    <td>
+                                        <span class="badge {{ $item->is_featured ? 'bg-success' : 'bg-warning' }}">
+                                            {{ $item->is_featured ? 'Evet' : 'Hayır' }}
+                                        </span>
+                                    </td>
                                     <td>
                                         <span class="badge {{ $item->status ? 'bg-info' : 'bg-secondary' }}">
                                             {{ $item->status ? 'Aktif' : 'Pasif' }}
                                         </span>
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.category.edit', $item->id) }}"><svg
+                                        <a href="{{ route('admin.brands.edit', $item->id) }}"><svg
                                                 class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                 fill="currentColor" viewBox="0 0 24 24">
@@ -47,7 +56,7 @@
                                                     clip-rule="evenodd" />
                                             </svg>
                                         </a>
-                                        <a href="{{ route('admin.category.destroy', $item->id) }}" id='delete'><svg
+                                        <a href="{{ route('admin.brands.destroy', $item->id) }}" id='delete'><svg
                                                 class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                 fill="red" viewBox="0 0 24 24">

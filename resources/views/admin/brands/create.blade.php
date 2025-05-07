@@ -3,23 +3,23 @@
 @section('admin_content')
     <section class="section">
         <div class="section-header">
-            <h1>Kategori Ekleme</h1>
+            <h1>Marka Ekleme</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Forms</a></div>
-                <div class="breadcrumb-item">Kategori Ekleme</div>
+                <div class="breadcrumb-item">Marka Ekleme</div>
             </div>
         </div>
 
         <div class="section-body">
-            <form action="{{ route('admin.category.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.brands.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-12 col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Kategori Başlığı</label>
+                                    <label>Marka Adı</label>
                                     <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                                     @error('name')
                                         <span class="text-danger">{{ $message }}</span>
@@ -28,24 +28,36 @@
 
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label>Kategori Icon</label>
-                                        <div data-rows="3" data-cols="8" data-unselected-class="btn-success"
-                                            data-selected-class="btn-danger" name='icon' role="iconpicker"></div>
-                                        @error('icon')
+                                        <label>Marka Logo</label>
+                                        <input type="file" class="form-control" name="image" id="image">
+
+                                        @error('image')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                    <div class="row">
-                                        <div class="form-select col-md-6">
-                                            <label>Kategori Durumu</label>
-                                            <select class="form-control" name="status">
-                                                <option value="1">Aktif</option>
-                                                <option value="0">Pasif</option>
-                                            </select>
-                                            @error('status')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
+                                    <img src="{{ asset('nophoto.png') }}" alt="Marka Logo" class="img-fluid" id="showImage"
+                                        style="width: 200px; height: 100px;">
+
+                                    <div class="form-group ">
+                                        <label>Marka Öne Çıkan</label>
+                                        <select class="form-select" name="is_featured">
+                                            <option value="1">Evet</option>
+                                            <option value="0">Hayır</option>
+                                        </select>
+                                        @error('is_featured')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>Kategori Durumu</label>
+                                        <select class="form-select" name="status">
+                                            <option value="1">Aktif</option>
+                                            <option value="0">Pasif</option>
+                                        </select>
+                                        @error('status')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+
                                     </div>
                                 </div>
                             </div>
@@ -55,4 +67,17 @@
             </form>
         </div>
     </section>
+@endsection
+@section('bodyDown')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#image').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+        });
+    </script>
 @endsection

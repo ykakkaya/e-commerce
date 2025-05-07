@@ -30,7 +30,7 @@
                                 <tr>
                                     <td style="width: 5px;">{{ $item->serial }}</td>
                                     <td><img src='{{ $item->image ? asset('storage/' . $item->image) : asset('nophoto.png') }}'
-                                            height='50'>
+                                           width='130px' height='50px'>
                                     </td>
                                     <td>{{ $item->title }}</td>
                                     <td>{{ $item->sub_title }}</td>
