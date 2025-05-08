@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label>Slider Resmi</label>
+                                        <label>Slider Resmi(1300*500)</label>
                                         <input type="file" class="form-control" id="image" name="image">
                                         @error('image')
                                             <span class="text-danger">{{ $message }}</span>

@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-12">
-                                        <label>Profil Resmi</label>
+                                        <label>Profil Resmi(350*350)</label>
                                         <input type="file" name="image" id="image" class="form-control">
                                     </div>
                                 </div>

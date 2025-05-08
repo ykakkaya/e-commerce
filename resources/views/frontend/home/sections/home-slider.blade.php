@@ -15,7 +15,7 @@
                                             <h6>{{ $slider->description }}</h6>
                                             @if ($slider->button_text != null && $slider->button_url != null)
                                                 <a class="common_btn"
-                                                    href="{{ $slider->button->url ?? '#' }}">{{ $slider->button_text }}</a>
+                                                    href="{{ $slider->button_url ?? '#' }}">{{ $slider->button_text }}</a>
                                             @endif
 
                                         </div>

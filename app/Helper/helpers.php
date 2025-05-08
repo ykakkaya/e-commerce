@@ -1,8 +1,9 @@
 <?php
-use Intervention\Image\ImageManager;
-use Intervention\Image\Drivers\Gd\Driver;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
+use Intervention\Image\ImageManager;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Drivers\Gd\Driver;
+
 
 //Active route helper
 function isActiveRoute(array $route){
@@ -16,7 +17,7 @@ function isActiveRoute(array $route){
     }
 }
 
-
+//Resize image helper
 function resizeImageHelper(UploadedFile $imageFile,string $imagePath,int $width, int $height){
     $manager = new ImageManager(new Driver());
     $filename = time() . '.' . $imageFile->getClientOriginalExtension();

@@ -55,7 +55,8 @@ class AdminController extends Controller
 
             }
 
-            $user->image = $request->image->store('images/users', 'public');
+           $image_path=resizeImageHelper($request->file('image'),'users',350,350);
+           $user->image = $image_path;
         }
         $user->save();
         //toastr()->success('Profiliniz Başarıyla Güncellendi!');
