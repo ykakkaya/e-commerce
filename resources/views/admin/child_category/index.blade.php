@@ -3,8 +3,8 @@
 @section('admin_content')
     <section class="section">
         <div class="section-header d-flex justify-content-between align-items-center mb-4">
-            <h1 class="mb-0">Alt Kategoriler</h1>
-            <a href="{{ route('admin.sub_category.create') }}" class="btn btn-primary">
+            <h1 class="mb-0">Child Kategoriler</h1>
+            <a href="{{ route('admin.child_category.create') }}" class="btn btn-primary">
                 + Child Kategori Ekle
             </a>
         </div>
@@ -15,6 +15,7 @@
                         <thead>
                             <tr>
                                 <th>SıraNo</th>
+                                <th>Child Kategori Adı</th>
                                 <th>Alt Kategori Adı</th>
                                 <th>Bağlı Kategori Adı</th>
                                 <th>Durum</th>
@@ -26,6 +27,7 @@
                                 <tr>
                                     <td style="width: 5px;">{{ $key + 1 }}</td>
                                     <td>{{ $item->name }}</td>
+                                    <td>{{ $item->subCategory->name }}</td>
                                     <td>{{ $item->category->name }}</td>
                                     <td>
                                         <span class="badge {{ $item->status ? 'bg-info' : 'bg-secondary' }}">

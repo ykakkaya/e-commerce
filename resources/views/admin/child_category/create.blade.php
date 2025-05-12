@@ -14,7 +14,6 @@
         <div class="section-body">
             <form action="{{ route('admin.child_category.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-
                 <div class="col-12 col-md-12">
                     <div class="card">
                         <div class="card-body">
@@ -25,17 +24,29 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label>Kategori</label>
-                                <select class="form-select" name="category_id">
-                                    <option value="">Seçiniz</option>
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                    @endforeach
-                                </select>
-                                @error('category_id')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                            <div class="row">
+                                <div class="form-group col md-6">
+                                    <label>Kategori</label>
+                                    <select class="form-select" name="category_id">
+                                        <option value="">Seçiniz</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('category_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group col md-6">
+                                    <label>Alt Kategori</label>
+                                    <select class="form-select" name="sub_category_id">
+                                        <option value="">Lütfen önce kategori seçin</option>
+
+                                    </select>
+                                    @error('sub_category_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Kategori Durumu</label>
@@ -53,4 +64,30 @@
             </form>
         </div>
     </section>
+@endsection
+@section('bodyDown')
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('select[name="category_id"]').on('change', function () {
+            var category_id = $(this).val();
+            if (category_id) {
+                $.ajax({
+                    url: "/admin/subcategory/ajax/" + category_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        var subCategorySelect = $('select[name="sub_category_id"]');
+                        subCategorySelect.empty();
+                        subCategorySelect.append('<option value="">Seçiniz</option>');
+                        $.each(data, function (key, value) {
+                            subCategorySelect.append('<option value="' + value.id + '">' + value.name + '</option>');
+                        });
+                    }
+                });
+            } else {
+                $('select[name="sub_category_id"]').empty().append('<option value="">Lütfen önce kategori seçin</option>');
+            }
+        });
+    });
+</script>
 @endsection

@@ -43,6 +43,7 @@ Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::get('child_category/edit/{id}',[ChildCategoryController::class,'edit'])->name('admin.child_category.edit');
     Route::post('child_category/update/{id}',[ChildCategoryController::class,'update'])->name('admin.child_category.update');
     Route::get('child_category/destroy/{id}',[ChildCategoryController::class,'destroy'])->name('admin.child_category.destroy');
+    Route::get('subcategory/ajax/{id}', [ChildCategoryController::class, 'subcategoryAjax'])->name('admin.subcategory.ajax');
     //Brands Routes
     Route::get('brands/index',[BrandController::class,'index'])->name('admin.brands.index');
     Route::get('brands/create',[BrandController::class,'create'])->name('admin.brands.create');
