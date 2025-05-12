@@ -29,8 +29,8 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label>Kategori Icon</label>
-                                        <div data-rows="3" data-cols="8" data-unselected-class="btn-success"
-                                            data-selected-class="btn-danger" name='icon' role="iconpicker"></div>
+                                        <div data-rows="3" data-cols="8" data-unselected-class="btn-light"
+                                            data-selected-class="btn-warning" name='icon' role="iconpicker"></div>
                                         @error('icon')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror

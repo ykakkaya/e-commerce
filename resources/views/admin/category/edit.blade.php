@@ -29,12 +29,12 @@
                                     <div class="form-group col-md-6">
                                         <label>Kategori Icon</label>
                                         <div id="iconpicker" role="iconpicker" data-icon="{{ $category->icon }}"
-                                            data-rows="3" data-cols="10" data-selected-class="btn-danger"
-                                            data-unselected-class=" btn-success">
+                                            data-rows="3" data-cols="10" data-selected-class="btn-warning"
+                                            data-unselected-class="btn-light">
                                         </div>
                                         <input type="hidden" name="icon" id="iconInput" value="{{ $category->icon }}">
                                         @error('icon')
-                                        <span class="text-danger">{{ $message }}</span>
+                                            <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
 

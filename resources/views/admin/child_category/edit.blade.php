@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Güncelle</button>
-                    <a href="{{ route('admin.sub_category.index') }}" class="btn btn-warning">İptal</a>
+                    <a href="{{ route('admin.child_category.index') }}" class="btn btn-warning">İptal</a>
             </form>
         </div>
     </section>
