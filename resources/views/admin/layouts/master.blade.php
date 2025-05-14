@@ -16,12 +16,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" />
     <!-- icon_picker bootstrap -->
     <link rel="stylesheet" href="{{ asset('backend/assets/iconpicker/bootstrap-iconpicker.min.css') }}" />
+  
 
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('backend/assets/modules/jqvmap/dist/jqvmap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/modules/weather-icon/css/weather-icons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/modules/weather-icon/css/weather-icons-wind.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/modules/summernote/summernote-bs4.css') }}">
+
     <!-- DataTables Bootstrap 5 -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
     <!-- DataTables Buttons -->
@@ -93,6 +95,7 @@
     <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
     <!--Delete SweetAlert-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!--Delete SweetAlert Code -->
     <script src="{{ asset('backend/assets/js/deleteCode.js') }}"></script>
     <!--icon picker-->
     <script type="text/javascript" src="{{ asset('backend/assets/iconpicker/bootstrap-iconpicker.bundle.min.js') }}">
@@ -101,10 +104,24 @@
     <!-- Template JS File -->
     <script src="{{ asset('backend/assets/js/scripts.js') }}"></script>
     <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
+
+    <!--show image-->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#image').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+        });
+    </script>
     <!--DataTable Settings-->
     <script>
         $(document).ready(function() {
             $('#myTable').DataTable({
+
                 responsive: true,
                 dom: "<'row mb-3'<'col-sm-6'l><'col-sm-6 text-end'f>>" +
                     "<'row mb-3'<'col-sm-12'B>>" +
@@ -123,7 +140,7 @@
             });
         });
     </script>
-    <!--Delete Button-->
+
 
     @yield('bodyDown')
 </body>

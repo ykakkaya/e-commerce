@@ -20,7 +20,7 @@ function isActiveRoute(array $route){
 //Resize image helper
 function resizeImageHelper(UploadedFile $imageFile,string $imagePath,int $width, int $height){
     $manager = new ImageManager(new Driver());
-    $filename = time() . '.' . $imageFile->getClientOriginalExtension();
+    $filename = uniqid() . '.' . $imageFile->getClientOriginalExtension();
     $image = $manager->read($imageFile);
     $resizedImage = $image
         ->resize($width, $height, function ($constraint) {

@@ -42,7 +42,7 @@ class BrandController extends Controller
             'is_featured.required'=>'Öne çıkan marka seçiniz',
             'status.required'=>'Durum seçiniz',
         ]);
-        
+
         $imagePath=null;
         if($request->hasFile('image')){
             $imagePath=resizeImageHelper($request->file('image'),'brands',400,200);
@@ -82,7 +82,7 @@ class BrandController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image'=>'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048 ',
             'is_featured'=>'required',
             'status'=>'required',
         ],[
@@ -92,7 +92,7 @@ class BrandController extends Controller
             'status.required'=>'Durum seçiniz',
         ]);
         $brand=Brand::findOrFail($id);
-        $imagePath=null;
+        $imagePath=$brand->image;
         if($request->hasFile('image')){
             if($brand->image){
                  Storage::disk('public')->delete($brand->image);

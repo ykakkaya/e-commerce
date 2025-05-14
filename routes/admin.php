@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Admin\AdminController;
 use App\Http\Controllers\Backend\Admin\BrandController;
 use App\Http\Controllers\Backend\Admin\SliderController;
+use App\Http\Controllers\Backend\Admin\ProductController;
 use App\Http\Controllers\Backend\Admin\CategoryController;
 use App\Http\Controllers\Backend\Admin\SubCategoryController;
 use App\Http\Controllers\Backend\Admin\ChildCategoryController;
@@ -44,6 +45,7 @@ Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::post('child_category/update/{id}',[ChildCategoryController::class,'update'])->name('admin.child_category.update');
     Route::get('child_category/destroy/{id}',[ChildCategoryController::class,'destroy'])->name('admin.child_category.destroy');
     Route::get('subcategory/ajax/{id}', [ChildCategoryController::class, 'subcategoryAjax'])->name('admin.subcategory.ajax');
+    Route::get('childcategory/ajax/{id}', [ChildCategoryController::class, 'childcategoryAjax'])->name('admin.childcategory.ajax');
     //Brands Routes
     Route::get('brands/index',[BrandController::class,'index'])->name('admin.brands.index');
     Route::get('brands/create',[BrandController::class,'create'])->name('admin.brands.create');
@@ -51,6 +53,15 @@ Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::get('brands/edit/{id}',[BrandController::class,'edit'])->name('admin.brands.edit');
     Route::post('brands/update/{id}',[BrandController::class,'update'])->name('admin.brands.update');
     Route::get('brands/destroy/{id}',[BrandController::class,'destroy'])->name('admin.brands.destroy');
-
+    //Product Routes
+    Route::get('products/index',[ProductController::class,'index'])->name('admin.products.index');
+    Route::get('products/create',[ProductController::class,'create'])->name('admin.products.create');
+    Route::post('products/store',[ProductController::class,'store'])->name('admin.products.store');
+    Route::get('products/edit/{id}',[ProductController::class,'edit'])->name('admin.products.edit');
+    Route::post('products/update/{id}',[ProductController::class,'update'])->name('admin.products.update');
+    Route::get('products/destroy/{id}',[ProductController::class,'destroy'])->name('admin.products.destroy');
+    Route::get('products/product_images/{id}',[ProductController::class,'productImages'])->name('admin.products.product_images');
+    Route::post('products/product_images/store',[ProductController::class,'productImagesStore'])->name('admin.products_images.store');
+    Route::get('products/product_images/destroy/{id}',[ProductController::class,'productImagesDestroy'])->name('admin.productImages.destroy');
 
 });

@@ -124,4 +124,10 @@ class ChildCategoryController extends Controller
         $sub_categories = SubCategory::where('category_id', $id)->get();
         return $sub_categories;
     }
+
+    public function childcategoryAjax($id)
+    {
+        $child_categories = ChildCategory::where('sub_category_id', $id)->get();
+        return $child_categories;
+    }
 }
